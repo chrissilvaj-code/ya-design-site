@@ -447,11 +447,75 @@ details,
 }
 
 .enterprise {
+  position: relative;
   display: grid;
-  gap: 8px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.7fr) auto;
+  gap: 28px;
   margin-top: 24px;
-  padding: 24px;
-  text-align: center;
+  padding: 34px;
+  align-items: center;
+  overflow: hidden;
+  border-color: rgba(204, 255, 0, 0.58);
+  background:
+    linear-gradient(135deg, rgba(204, 255, 0, 0.16), rgba(255, 255, 255, 0.035) 42%, rgba(5, 5, 5, 0.22)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+}
+
+.enterprise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgba(204, 255, 0, 0.76);
+  pointer-events: none;
+}
+
+.enterprise__copy {
+  position: relative;
+  display: grid;
+  gap: 12px;
+}
+
+.enterprise h3 {
+  max-width: 660px;
+  font-size: 1.65rem;
+}
+
+.enterprise p {
+  max-width: 660px;
+}
+
+.enterprise__list {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  color: #f7f7f2;
+  font-size: 0.88rem;
+  font-weight: 800;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.enterprise__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.enterprise__list li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--primary);
+  box-shadow: 0 0 18px rgba(204, 255, 0, 0.62);
+}
+
+.enterprise .btn {
+  position: relative;
+  white-space: nowrap;
 }
 
 .faq__wrap {
@@ -547,6 +611,11 @@ details p {
     flex-direction: column;
   }
 
+  .enterprise {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+  }
+
   .stats span {
     font-size: 1.85rem;
   }
@@ -613,7 +682,8 @@ details p {
   .actions,
   .actions .btn,
   .cta-band .btn,
-  .contact-card .btn {
+  .contact-card .btn,
+  .enterprise .btn {
     width: 100%;
   }
 
@@ -625,6 +695,15 @@ details p {
 
   .pricing {
     min-height: 0;
+  }
+
+  .enterprise {
+    gap: 22px;
+    padding: 24px;
+  }
+
+  .enterprise h3 {
+    font-size: 1.35rem;
   }
 
   .price strong {

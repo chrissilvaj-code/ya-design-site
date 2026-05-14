@@ -49,12 +49,19 @@ a {
   min-height: 100vh;
   overflow: hidden;
   color: #fff;
+  background: #050505;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background:
-    linear-gradient(90deg, rgba(204, 255, 0, 0.08) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(204, 255, 0, 0.06) 1px, transparent 1px),
-    radial-gradient(circle at 50% -10%, rgba(204, 255, 0, 0.18), transparent 34%),
-    #050505;
-  background-size: 72px 72px, 72px 72px, auto, auto;
+    linear-gradient(90deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.68) 48%, rgba(5, 5, 5, 0.28) 100%),
+    radial-gradient(circle at 18% 34%, rgba(204, 255, 0, 0.14), transparent 34%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.1), rgba(5, 5, 5, 0.82));
+  pointer-events: none;
 }
 
 .hero::after {
@@ -113,12 +120,15 @@ a {
 
 .hero__grid {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
-  gap: 56px;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   padding: 82px 0 132px;
+}
+
+.hero__content {
+  max-width: 760px;
 }
 
 .eyebrow {
@@ -217,22 +227,11 @@ p {
 }
 
 .hero-video {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
-  box-shadow: var(--shadow);
-  aspect-ratio: 4 / 5;
-}
-
-.hero-video::before {
-  content: "";
   position: absolute;
+  z-index: 0;
   inset: 0;
-  background: radial-gradient(circle at 80% 12%, rgba(204, 255, 0, 0.18), transparent 32%);
+  overflow: hidden;
   pointer-events: none;
-  z-index: 1;
 }
 
 .hero-video video {
@@ -600,7 +599,6 @@ details p {
     padding: 42px 0 82px;
   }
 
-  .hero-video,
   .pricing,
   .feature,
   .value-grid article,
@@ -609,8 +607,7 @@ details p {
   }
 
   .hero-video {
-    padding: 0;
-    aspect-ratio: 16 / 11;
+    opacity: 0.72;
   }
 
   .actions,
@@ -635,14 +632,20 @@ details p {
   }
 
   .stats__inner {
-    gap: 12px;
+    min-height: 180px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding: 24px 0;
   }
 
   .stats span {
-    font-size: 1.35rem;
+    font-size: 1.22rem;
+    line-height: 1.1;
   }
 
   .stats strong {
-    font-size: 4.2rem;
+    font-size: 4rem;
+    line-height: 0.72;
   }
 }

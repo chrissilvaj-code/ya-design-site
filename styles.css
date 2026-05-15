@@ -693,17 +693,41 @@ details p {
 }
 
 .contact-card {
+  position: relative;
   display: grid;
-  gap: 24px;
+  gap: 28px;
   justify-items: center;
-  padding: 34px;
+  overflow: hidden;
+  padding: 42px 34px 34px;
+  border-color: rgba(204, 255, 0, 0.28);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 56%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(204, 255, 0, 0.82), transparent);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.contact-card::after {
+  content: none;
 }
 
 .contact-card img {
-  width: 140px;
+  position: relative;
+  width: 136px;
+  filter: drop-shadow(0 0 16px rgba(204, 255, 0, 0.18));
 }
 
 .contact-actions {
+  position: relative;
   display: grid;
   width: 100%;
   gap: 12px;
@@ -711,6 +735,17 @@ details p {
 
 .contact-actions .btn {
   width: 100%;
+  min-height: 52px;
+  box-shadow: none;
+}
+
+.contact-actions .btn--solid {
+  border-color: rgba(204, 255, 0, 0.82);
+  background: rgba(5, 5, 5, 0.2);
+}
+
+.contact-actions .btn:hover {
+  box-shadow: 0 16px 34px rgba(204, 255, 0, 0.12);
 }
 
 .whatsapp-float {

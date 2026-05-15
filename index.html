@@ -25,6 +25,7 @@
           </a>
           <nav class="site-nav" aria-label="Navegação principal">
             <a href="#servicos">Serviços</a>
+            <a href="#portfolio">Portfólio</a>
             <a href="#planos">Planos</a>
             <a href="#contato">Contato</a>
           </nav>
@@ -132,6 +133,52 @@
         </div>
       </section>
 
+      <section class="section section--portfolio" id="portfolio">
+        <div class="container">
+          <div class="section__header">
+            <span class="eyebrow">Portfólio</span>
+            <h2>Projetos visuais com presença, consistência e acabamento premium.</h2>
+            <p>Uma prévia dos formatos que a YA Design pode desenvolver para marcas, campanhas, eventos e materiais comerciais.</p>
+          </div>
+
+          <div class="portfolio-grid">
+            <article class="portfolio-card portfolio-card--brand">
+              <div class="portfolio-card__visual" aria-hidden="true">
+                <span></span>
+                <strong>YA</strong>
+              </div>
+              <div class="portfolio-card__copy">
+                <span>Identidade visual</span>
+                <h3>Branding para marcas que precisam parecer prontas para vender.</h3>
+              </div>
+            </article>
+
+            <article class="portfolio-card portfolio-card--social">
+              <div class="portfolio-card__visual" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="portfolio-card__copy">
+                <span>Redes sociais</span>
+                <h3>Peças digitais com unidade visual para campanhas e conteúdo recorrente.</h3>
+              </div>
+            </article>
+
+            <article class="portfolio-card portfolio-card--event">
+              <div class="portfolio-card__visual" aria-hidden="true">
+                <span>Invite</span>
+                <strong>2026</strong>
+              </div>
+              <div class="portfolio-card__copy">
+                <span>Convites inteligentes</span>
+                <h3>Experiências digitais para eventos, ativações e comunicações especiais.</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="cta-band">
         <div class="container cta-band__inner">
           <div>
@@ -229,15 +276,58 @@
           </div>
           <div class="contact-card">
             <img src="Ya-Design/logo-ya-green.png" alt="YA Design">
-            <a class="btn btn--light" href="mailto:contato@yasmindesigner.com">contato@yasmindesigner.com</a>
+            <div class="contact-actions" aria-label="Canais de contato">
+              <a class="btn btn--light" href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20um%20projeto%20com%20a%20YA%20Design." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+              <a class="btn btn--solid" href="#portfolio">Ver portfólio</a>
+              <a class="btn btn--solid" href="mailto:contato@yasmindesigner.com">Enviar email</a>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
+    <a class="whatsapp-float" href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20um%20projeto%20com%20a%20YA%20Design." target="_blank" rel="noopener" aria-label="Chamar a YA Design no WhatsApp">
+      <span>WhatsApp</span>
+    </a>
+
     <footer class="footer">
-      <p>YA Design Studio</p>
-      <img src="Ya-Design/logo-ya-green.png" alt="YA Design">
+      <div class="footer__inner">
+        <img src="Ya-Design/logo-ya-green.png" alt="YA Design">
+        <nav class="footer__nav" aria-label="Links do rodapÃ©">
+          <a href="#servicos">Serviços</a>
+          <a href="#portfolio">Portfólio</a>
+          <a href="#planos">Planos</a>
+          <a href="#contato">Contato</a>
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20um%20projeto%20com%20a%20YA%20Design." target="_blank" rel="noopener">WhatsApp</a>
+        </nav>
+        <p>&copy; 2026 YA Design. Todos os direitos reservados.</p>
+      </div>
     </footer>
+    <script>
+      const animatedElements = document.querySelectorAll(".section, .stats, .cta-band, .feature, .value-grid article, .portfolio-card, .pricing, .enterprise, details, .contact-card");
+
+      animatedElements.forEach((element) => {
+        element.classList.add("reveal");
+      });
+
+      if ("IntersectionObserver" in window) {
+        const revealOnScroll = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealOnScroll.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.16 });
+
+        animatedElements.forEach((element) => {
+          revealOnScroll.observe(element);
+        });
+      } else {
+        animatedElements.forEach((element) => {
+          element.classList.add("is-visible");
+        });
+      }
+    </script>
   </body>
 </html>

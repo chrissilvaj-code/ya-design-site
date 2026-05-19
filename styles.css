@@ -946,40 +946,40 @@ details p {
   .site-header {
     min-height: 78px;
     align-items: center;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 10px;
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: stretch;
+    gap: 8px 10px;
     padding-top: 18px;
   }
 
   .brand img {
-    width: 58px;
-    height: 58px;
+    width: 44px;
+    height: 44px;
   }
 
   .site-nav {
     display: flex;
-    width: min(100%, 360px);
-    gap: 8px;
-    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    gap: 6px;
+    justify-content: flex-end;
   }
 
   .site-nav a {
     display: inline-flex;
-    min-height: 36px;
+    min-height: 32px;
     align-items: center;
     justify-content: center;
-    padding: 7px 10px;
-    font-size: 0.72rem;
+    padding: 6px 8px;
+    font-size: 0.66rem;
     text-align: center;
   }
 
   .social-nav {
-    grid-column: auto;
+    grid-column: 1 / -1;
     width: 100%;
-    max-width: 190px;
     gap: 7px;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   .social-nav a {
@@ -1072,5 +1072,22 @@ details p {
   .stats strong {
     font-size: 4rem;
     line-height: 0.72;
+  }
+}
+
+@media (max-width: 390px) {
+  .site-header {
+    align-items: flex-start;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .site-nav a {
+    min-height: 34px;
+    padding: 6px 9px;
+    font-size: 0.68rem;
   }
 }

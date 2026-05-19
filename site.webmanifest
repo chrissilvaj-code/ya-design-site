@@ -1,0 +1,21 @@
+{
+  "name": "YA Design",
+  "short_name": "YA Design",
+  "description": "Design estrategico, branding e materiais visuais premium para empresas.",
+  "icons": [
+    {
+      "src": "Ya-Design/logo-ya-green.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    },
+    {
+      "src": "Ya-Design/Logo-green-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#050505",
+  "background_color": "#050505",
+  "display": "standalone"
+}

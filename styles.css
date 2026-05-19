@@ -29,6 +29,7 @@ body {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -723,6 +724,8 @@ details p {
 .contact-card img {
   position: relative;
   width: 136px;
+  height: auto;
+  object-fit: contain;
   filter: drop-shadow(0 0 16px rgba(204, 255, 0, 0.18));
 }
 
@@ -804,6 +807,7 @@ details p {
 
 .footer img {
   width: min(120px, 32vw);
+  height: auto;
   margin: 0 auto;
 }
 
@@ -941,8 +945,10 @@ details p {
 
   .site-header {
     min-height: 78px;
-    align-items: flex-start;
+    align-items: center;
     grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
     padding-top: 18px;
   }
 
@@ -952,13 +958,28 @@ details p {
   }
 
   .site-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
     width: 100%;
-    justify-content: flex-start;
+    max-width: 300px;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .site-nav a {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    text-align: center;
   }
 
   .social-nav {
     grid-column: auto;
-    justify-content: flex-start;
+    width: 100%;
+    max-width: 220px;
+    justify-content: center;
   }
 
   .social-nav a {

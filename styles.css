@@ -339,6 +339,10 @@ p {
   margin-top: 14px;
 }
 
+.section--about .split > .copy:last-child {
+  padding-top: 52px;
+}
+
 .section--about,
 .section--gallery,
 .contact {
@@ -549,7 +553,9 @@ details:hover,
 .section--offer {
   background:
     linear-gradient(rgba(5, 5, 5, 0.86), rgba(5, 5, 5, 0.93)),
-    url("http://sitefacilitado.com.br/membros/wp-content/uploads/2020/03/image-1.png") center / cover fixed;
+    radial-gradient(circle at 18% 18%, rgba(204, 255, 0, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 28%, rgba(204, 255, 0, 0.08), transparent 34%),
+    #050505;
 }
 
 .pricing {
@@ -585,11 +591,14 @@ details:hover,
 .enterprise {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.7fr) auto;
-  gap: 28px;
+  grid-template-areas:
+    "copy benefits"
+    "button benefits";
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 0.72fr);
+  gap: 30px 46px;
   margin-top: 24px;
   padding: 34px;
-  align-items: center;
+  align-items: stretch;
   overflow: hidden;
   border-color: rgba(204, 255, 0, 0.58);
   background:
@@ -607,6 +616,7 @@ details:hover,
 
 .enterprise__copy {
   position: relative;
+  grid-area: copy;
   display: grid;
   gap: 12px;
 }
@@ -620,10 +630,21 @@ details:hover,
   max-width: 660px;
 }
 
-.enterprise__list {
+.enterprise__benefits {
   position: relative;
+  grid-area: benefits;
   display: grid;
-  gap: 10px;
+  align-content: center;
+  gap: 24px;
+  border: 1px solid rgba(204, 255, 0, 0.2);
+  border-radius: 8px;
+  padding: 26px 28px;
+  background: linear-gradient(135deg, rgba(204, 255, 0, 0.075), rgba(255, 255, 255, 0.026));
+}
+
+.enterprise__list {
+  display: grid;
+  gap: 14px;
   margin: 0;
   padding: 0;
   color: #f7f7f2;
@@ -640,17 +661,38 @@ details:hover,
 }
 
 .enterprise__list li::before {
-  content: "";
-  width: 8px;
-  height: 8px;
+  content: "\2713";
+  width: 18px;
+  height: 18px;
   flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 999px;
-  background: var(--primary);
-  box-shadow: 0 0 18px rgba(204, 255, 0, 0.62);
+  color: #fff;
+  font-size: 0.82rem;
+  line-height: 1;
+  background: linear-gradient(135deg, #38d87b, #1f9f6b);
+  box-shadow: 0 0 18px rgba(56, 216, 123, 0.28);
+}
+
+.enterprise__note {
+  position: relative;
+  justify-self: start;
+  border: 1px solid rgba(204, 255, 0, 0.24);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #d4d8ca;
+  font-weight: 800;
+  background: rgba(5, 5, 5, 0.28);
 }
 
 .enterprise .btn {
   position: relative;
+  grid-area: button;
+  width: 100%;
+  max-width: 440px;
+  align-self: end;
   white-space: nowrap;
 }
 
@@ -896,6 +938,10 @@ details p {
     grid-template-columns: 1fr;
   }
 
+  .section--about .split > .copy:last-child {
+    padding-top: 0;
+  }
+
   .feature-grid,
   .value-grid,
   .portfolio-grid,
@@ -909,6 +955,10 @@ details p {
   }
 
   .enterprise {
+    grid-template-areas:
+      "copy"
+      "benefits"
+      "button";
     grid-template-columns: 1fr;
     align-items: flex-start;
   }
@@ -923,6 +973,10 @@ details p {
 }
 
 @media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+
   h1 {
     font-size: 2.26rem;
   }
@@ -936,7 +990,7 @@ details p {
   }
 
   .section {
-    padding: 64px 0;
+    padding: 56px 0;
   }
 
   .hero {
@@ -948,7 +1002,7 @@ details p {
     align-items: center;
     grid-template-columns: auto minmax(0, 1fr);
     justify-items: stretch;
-    gap: 8px 10px;
+    gap: 12px 14px;
     padding-top: 18px;
   }
 
@@ -957,39 +1011,60 @@ details p {
     height: 44px;
   }
 
+  .brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
   .site-nav {
     display: flex;
+    grid-column: 1 / -1;
+    grid-row: 2;
     flex-wrap: nowrap;
     width: 100%;
-    gap: 6px;
-    justify-content: flex-end;
+    gap: 8px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .site-nav a {
     display: inline-flex;
-    min-height: 32px;
+    min-width: max-content;
+    min-height: 36px;
     align-items: center;
     justify-content: center;
-    padding: 6px 8px;
-    font-size: 0.66rem;
+    border-color: rgba(204, 255, 0, 0.28);
+    padding: 7px 14px;
+    font-size: 0.68rem;
     text-align: center;
+    background: rgba(5, 5, 5, 0.28);
+    backdrop-filter: blur(10px);
   }
 
   .social-nav {
-    grid-column: 1 / -1;
+    grid-column: 2;
+    grid-row: 1;
     width: 100%;
     gap: 7px;
     justify-content: flex-end;
   }
 
   .social-nav a {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
+    background: rgba(5, 5, 5, 0.26);
+    backdrop-filter: blur(10px);
   }
 
   .social-nav svg {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
   }
 
   .hero__grid {
@@ -997,11 +1072,27 @@ details p {
     padding: 34px 0 82px;
   }
 
+  .split {
+    gap: 28px;
+  }
+
+  .copy {
+    gap: 16px;
+  }
+
+  .section__header {
+    margin-bottom: 34px;
+  }
+
   .pricing,
   .feature,
   .value-grid article,
   .contact-card {
     padding: 24px;
+  }
+
+  .feature {
+    min-height: 0;
   }
 
   .hero-video {
@@ -1017,15 +1108,64 @@ details p {
   }
 
   .whatsapp-float {
-    right: 14px;
-    bottom: 14px;
-    min-height: 48px;
-    padding: 0 16px;
+    right: 16px;
+    bottom: 16px;
+    width: 46px;
+    height: 46px;
+    min-height: 0;
+    border: 0;
+    padding: 0;
+    color: #062000;
     font-size: 0.74rem;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.44), 0 0 22px rgba(204, 255, 0, 0.24);
+  }
+
+  .whatsapp-float svg {
+    width: 34px;
+    height: 34px;
+    margin-right: 0;
+  }
+
+  .whatsapp-float span {
+    display: none;
   }
 
   .footer {
-    padding-bottom: 82px;
+    padding: 42px 18px 82px;
+  }
+
+  .footer__inner {
+    gap: 16px;
+  }
+
+  .footer img {
+    width: 86px;
+  }
+
+  .footer__nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 124px));
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+  }
+
+  .footer__nav a {
+    display: inline-flex;
+    min-height: 32px;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 0.64rem;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .footer p {
+    max-width: none;
+    font-size: 0.72rem;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
   .feature-grid,
@@ -1046,6 +1186,33 @@ details p {
   .enterprise {
     gap: 22px;
     padding: 24px;
+  }
+
+  .enterprise__benefits {
+    width: 100%;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .enterprise__list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    font-size: 0.82rem;
+  }
+
+  .enterprise__list li {
+    align-items: flex-start;
+    line-height: 1.28;
+  }
+
+  .enterprise__list li::before {
+    margin-top: 1px;
+  }
+
+  .enterprise__note {
+    width: 100%;
+    text-align: center;
+    font-size: 0.82rem;
   }
 
   .enterprise h3 {
@@ -1077,17 +1244,17 @@ details p {
 
 @media (max-width: 390px) {
   .site-header {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .site-nav {
-    flex-wrap: wrap;
-    gap: 7px;
+    flex-wrap: nowrap;
+    gap: 8px;
   }
 
   .site-nav a {
-    min-height: 34px;
-    padding: 6px 9px;
+    min-height: 36px;
+    padding: 7px 14px;
     font-size: 0.68rem;
   }
 }

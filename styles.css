@@ -579,8 +579,8 @@ details:hover,
 .section--offer {
   background:
     linear-gradient(rgba(5, 5, 5, 0.86), rgba(5, 5, 5, 0.93)),
-    radial-gradient(circle at 18% 18%, rgba(204, 255, 0, 0.12), transparent 30%),
-    radial-gradient(circle at 82% 28%, rgba(204, 255, 0, 0.08), transparent 34%),
+    radial-gradient(circle at 18% 18%, rgba(204, 255, 0, 0.18), transparent 32%),
+    radial-gradient(circle at 72% 38%, rgba(204, 255, 0, 0.14), transparent 36%),
     #050505;
 }
 
@@ -632,8 +632,31 @@ details:hover,
 }
 
 .plan-preview--featured {
-  border-color: rgba(204, 255, 0, 0.42);
-  background: linear-gradient(150deg, rgba(204, 255, 0, 0.1), rgba(255, 255, 255, 0.022));
+  border-color: rgba(204, 255, 0, 0.82);
+  background:
+    linear-gradient(150deg, rgba(204, 255, 0, 0.22), rgba(204, 255, 0, 0.055) 62%),
+    rgba(255, 255, 255, 0.025);
+  box-shadow: 0 22px 65px rgba(0, 0, 0, 0.3), 0 0 34px rgba(204, 255, 0, 0.08);
+  transform: translateY(-8px);
+}
+
+.plan-preview--featured:hover,
+.plan-preview--featured:focus-within {
+  transform: translateY(-12px);
+}
+
+.plan-preview__badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  color: #050505;
+  background: var(--primary);
+  font-size: 0.58rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .plan-preview h3 {
@@ -668,16 +691,34 @@ details:hover,
   justify-content: space-between;
   gap: 30px;
   margin-top: 28px;
-  padding-top: 28px;
-  border-top: 1px solid var(--line);
+  padding: 30px;
+  border: 1px solid rgba(204, 255, 0, 0.36);
+  border-radius: 14px;
+  background: linear-gradient(100deg, rgba(204, 255, 0, 0.12), rgba(255, 255, 255, 0.02));
 }
 
-.plans-preview-footer p {
-  color: var(--muted);
+.plans-preview-investment {
+  display: grid;
+  gap: 4px;
 }
 
-.plans-preview-footer strong {
+.plans-preview-investment > span {
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.plans-preview-investment > strong {
   color: #fff;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.plans-preview-investment p {
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 .pricing {
@@ -1621,6 +1662,12 @@ details p {
     padding: 24px;
   }
 
+  .plan-preview--featured,
+  .plan-preview--featured:hover,
+  .plan-preview--featured:focus-within {
+    transform: none;
+  }
+
   .plan-preview h3 {
     margin-top: 30px;
   }
@@ -1628,6 +1675,7 @@ details p {
   .plans-preview-footer {
     align-items: stretch;
     flex-direction: column;
+    padding: 24px;
   }
 
   .plans-preview-footer .btn {

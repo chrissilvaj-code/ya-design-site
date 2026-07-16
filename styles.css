@@ -584,6 +584,102 @@ details:hover,
     #050505;
 }
 
+.plans-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.plan-preview {
+  position: relative;
+  display: flex;
+  min-height: 290px;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease, background 240ms ease;
+}
+
+.plan-preview::before {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 10%, rgba(204, 255, 0, 0.11), transparent 46%);
+  opacity: 0;
+  content: "";
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+
+.plan-preview:hover,
+.plan-preview:focus-within {
+  border-color: rgba(204, 255, 0, 0.5);
+  background: linear-gradient(150deg, rgba(204, 255, 0, 0.07), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.3), 0 0 28px rgba(204, 255, 0, 0.05);
+  transform: translateY(-5px);
+}
+
+.plan-preview:hover::before,
+.plan-preview:focus-within::before {
+  opacity: 1;
+}
+
+.plan-preview > * {
+  position: relative;
+  z-index: 1;
+}
+
+.plan-preview--featured {
+  border-color: rgba(204, 255, 0, 0.42);
+  background: linear-gradient(150deg, rgba(204, 255, 0, 0.1), rgba(255, 255, 255, 0.022));
+}
+
+.plan-preview h3 {
+  margin-top: 40px;
+  font-size: 1.3rem;
+}
+
+.plan-preview > a {
+  width: fit-content;
+  margin-top: auto;
+  padding-top: 28px;
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.plan-preview > a span {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.plan-preview:hover > a span,
+.plan-preview:focus-within > a span {
+  transform: translateX(5px);
+}
+
+.plans-preview-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.plans-preview-footer p {
+  color: var(--muted);
+}
+
+.plans-preview-footer strong {
+  color: #fff;
+}
+
 .pricing {
   position: relative;
   display: flex;
@@ -1210,6 +1306,10 @@ details p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .plans-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .cta-band__inner {
     align-items: flex-start;
     flex-direction: column;
@@ -1510,6 +1610,29 @@ details p {
   .value-grid,
   .pricing-grid {
     grid-template-columns: 1fr;
+  }
+
+  .plans-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-preview {
+    min-height: 230px;
+    padding: 24px;
+  }
+
+  .plan-preview h3 {
+    margin-top: 30px;
+  }
+
+  .plans-preview-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .plans-preview-footer .btn {
+    width: 100%;
+    text-align: center;
   }
 
   .portfolio-grid {

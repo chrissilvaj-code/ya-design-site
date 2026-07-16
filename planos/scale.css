@@ -1455,9 +1455,13 @@
   opacity: 1;
 }
 
-.scale-interactive-card > * {
+.scale-interactive-card > :not(.plan-card__badge) {
   position: relative;
   z-index: 1;
+}
+
+.plan-card__badge {
+  z-index: 2;
 }
 
 .scale-fit__map .scale-interactive-card:hover {

@@ -789,7 +789,7 @@ details:hover,
   color: #fff;
   filter: drop-shadow(0 5px 7px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 5px rgba(204, 255, 0, 0.45));
   pointer-events: none;
-  animation: cursor-click 5.5s ease-in-out infinite;
+  animation: cursor-click 4s ease-in-out infinite;
   transform-origin: 5px 4px;
 }
 
@@ -814,7 +814,7 @@ details:hover,
   border-radius: 50%;
   opacity: 0;
   content: "";
-  animation: cursor-ripple 5.5s ease-out infinite;
+  animation: cursor-ripple 4s ease-out infinite;
 }
 
 .plans-preview-action:hover .click-cursor {
@@ -1504,14 +1504,14 @@ details p {
 
   .click-cursor {
     animation-name: cursor-click !important;
-    animation-duration: 5.5s !important;
+    animation-duration: 4s !important;
     animation-timing-function: ease-in-out !important;
     animation-iteration-count: infinite !important;
   }
 
   .click-cursor::after {
     animation-name: cursor-ripple !important;
-    animation-duration: 5.5s !important;
+    animation-duration: 4s !important;
     animation-timing-function: ease-out !important;
     animation-iteration-count: infinite !important;
   }

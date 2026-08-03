@@ -45,3 +45,48 @@ premiumCards.forEach((card) => {
     card.style.setProperty("--tilt-y", "0deg");
   });
 });
+
+const autoplayVideos = document.querySelectorAll("[data-autoplay-video]");
+
+const playVideo = (video) => {
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+
+  const playback = video.play();
+  if (playback) playback.catch(() => {});
+};
+
+if ("IntersectionObserver" in window) {
+  const videoPlaybackObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+
+        if (entry.isIntersecting) {
+          playVideo(video);
+        } else {
+          video.pause();
+        }
+      });
+    },
+    { rootMargin: "160px 0px", threshold: 0.08 }
+  );
+
+  autoplayVideos.forEach((video) => {
+    videoPlaybackObserver.observe(video);
+    video.addEventListener("canplay", () => playVideo(video));
+  });
+} else {
+  autoplayVideos.forEach(playVideo);
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) return;
+
+  autoplayVideos.forEach((video) => {
+    const bounds = video.getBoundingClientRect();
+    const isNearViewport = bounds.bottom >= -160 && bounds.top <= window.innerHeight + 160;
+    if (isNearViewport) playVideo(video);
+  });
+});

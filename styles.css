@@ -1875,12 +1875,36 @@ details p {
   .plans-preview-footer {
     align-items: stretch;
     flex-direction: column;
+    min-height: 0;
+    gap: 24px;
     padding: 24px;
+  }
+
+  .plans-preview-action {
+    width: 100%;
+    flex: 0 0 auto;
   }
 
   .plans-preview-footer .btn {
     width: 100%;
     text-align: center;
+  }
+
+  .plans-preview-footer .btn--investment {
+    min-height: 76px;
+    padding: 14px 62px 14px 20px;
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  .click-cursor {
+    top: 50%;
+    right: 22px;
+    bottom: auto;
+    width: 30px;
+    height: 35px;
+    margin-top: -17px;
+    animation-name: cursor-click-mobile;
   }
 
   .portfolio-grid {
@@ -1959,6 +1983,40 @@ details p {
   .stats strong {
     font-size: 1.65rem;
     line-height: 1.08;
+  }
+}
+
+@keyframes cursor-click-mobile {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translate(18px, 16px) scale(1);
+  }
+
+  14% {
+    opacity: 1;
+  }
+
+  32% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  38% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.76);
+  }
+
+  44%,
+  58% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  70%,
+  100% {
+    opacity: 0;
+    transform: translate(8px, 6px) scale(1);
   }
 }
 

@@ -1530,9 +1530,11 @@
   transition: background 220ms ease, color 220ms ease, padding-left 220ms ease;
 }
 
-.scale-faq summary:hover {
-  padding-left: 30px;
-  background: rgba(204, 255, 0, 0.92);
+@media (hover: hover) and (pointer: fine) {
+  .scale-faq summary:hover {
+    padding-left: 30px;
+    background: rgba(204, 255, 0, 0.92);
+  }
 }
 
 @media (hover: none), (pointer: coarse) {
@@ -1545,6 +1547,128 @@
 
   .scale-interactive-card:active {
     transform: scale(0.99);
+  }
+}
+
+@media (max-width: 640px) {
+  .scale-page .section__header {
+    margin-bottom: 28px;
+  }
+
+  .scale-hero::after {
+    width: 360px;
+    height: 360px;
+    right: -210px;
+  }
+
+  .scale-hero__content {
+    min-height: calc(100svh - 80px);
+    padding-top: 34px;
+    padding-bottom: 72px;
+  }
+
+  .scale-problem,
+  .scale-solution,
+  .scale-deliverables,
+  .scale-process,
+  .scale-faq {
+    padding: 64px 0;
+  }
+
+  .scale-split {
+    gap: 22px;
+  }
+
+  .scale-faq__visual {
+    position: relative;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .scale-faq__visual::after {
+    background:
+      linear-gradient(180deg, rgba(5, 5, 5, 0.06) 0%, rgba(5, 5, 5, 0.2) 38%, rgba(5, 5, 5, 0.94) 100%),
+      linear-gradient(90deg, rgba(5, 5, 5, 0.5), transparent 82%);
+  }
+
+  .scale-faq__video video {
+    object-position: center 34%;
+  }
+
+  .scale-faq__visual h2 {
+    max-width: 270px;
+    margin-top: 12px;
+    font-size: clamp(1.85rem, 8vw, 2.2rem);
+    line-height: 1.04;
+  }
+
+  .scale-faq .faq-list {
+    gap: 10px;
+  }
+
+  .scale-faq details {
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  .scale-faq summary {
+    min-height: 64px;
+    padding: 18px 48px 18px 18px;
+    font-size: 0.94rem;
+    line-height: 1.35;
+  }
+
+  .scale-faq details p {
+    padding: 0 18px 20px;
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .scale-faq details:hover,
+  .scale-faq details:focus-within {
+    transform: none;
+  }
+
+  .scale-faq summary:hover {
+    padding-left: 18px;
+    background: transparent;
+  }
+
+  .scale-faq details[open] summary {
+    color: var(--primary);
+    background: rgba(204, 255, 0, 0.045);
+  }
+
+  .scale-orbit {
+    max-width: 300px;
+  }
+
+  .scale-fit__map article {
+    min-height: 280px;
+  }
+
+  .scale-portfolio__grid {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 390px) {
+  .scale-hero h1 {
+    font-size: clamp(2.15rem, 10vw, 2.45rem);
+  }
+
+  .scale-statement h2 {
+    font-size: clamp(2.5rem, 13vw, 3rem);
+  }
+
+  .scale-deliverables__grid article,
+  .scale-compare article,
+  .scale-offer-card,
+  .plan-card,
+  .enterprise-plan {
+    padding: 22px;
   }
 }
 

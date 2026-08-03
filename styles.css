@@ -665,19 +665,43 @@ details:hover,
 }
 
 .plan-preview > a {
+  display: inline-flex;
   width: fit-content;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
   margin-top: auto;
-  padding-top: 28px;
+  border: 1px solid rgba(204, 255, 0, 0.7);
+  border-radius: 999px;
+  padding: 0 16px;
   color: var(--primary);
+  background: rgba(204, 255, 0, 0.07);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2);
   font-size: 0.72rem;
   font-weight: 800;
   text-decoration: none;
   text-transform: uppercase;
+  transition: color 200ms ease, background 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 
 .plan-preview > a span {
   display: inline-block;
   transition: transform 200ms ease;
+}
+
+.plan-preview > a:hover,
+.plan-preview > a:focus-visible {
+  border-color: var(--primary);
+  color: #050505;
+  background: var(--primary);
+  box-shadow: 0 14px 34px rgba(204, 255, 0, 0.22);
+}
+
+.plan-preview--featured > a {
+  color: #050505;
+  background: var(--primary);
+  box-shadow: 0 14px 34px rgba(204, 255, 0, 0.2);
 }
 
 .plan-preview:hover > a span,
@@ -1860,6 +1884,7 @@ details p {
   .plan-preview {
     min-height: 230px;
     padding: 24px;
+    cursor: pointer;
   }
 
   .plan-preview--featured,
@@ -1870,6 +1895,31 @@ details p {
 
   .plan-preview h3 {
     margin-top: 30px;
+  }
+
+  .plan-preview > a {
+    position: static;
+    min-height: 48px;
+    margin-top: 28px;
+    padding-inline: 18px;
+  }
+
+  .plan-preview > a::after {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    border-radius: inherit;
+    content: "";
+  }
+
+  .plan-preview:active {
+    border-color: var(--primary);
+    background: linear-gradient(150deg, rgba(204, 255, 0, 0.13), rgba(255, 255, 255, 0.025));
+    transform: scale(0.985);
+  }
+
+  .plan-preview--featured:active {
+    transform: scale(0.985);
   }
 
   .plans-preview-footer {

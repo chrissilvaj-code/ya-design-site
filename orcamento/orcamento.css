@@ -1,0 +1,16 @@
+.quote-page { min-height: 100vh; }
+.quote-page__header { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid var(--line); background: rgba(5, 5, 5, .92); backdrop-filter: blur(16px); }
+.quote-page__nav { display: flex; min-height: 88px; align-items: center; justify-content: space-between; gap: 24px; }
+.quote-page__nav .brand { width: 58px; height: 58px; }
+.quote-page__nav-actions { display: flex; align-items: center; gap: 22px; }
+.quote-page__nav-actions > a:not(.btn) { color: var(--muted); font-size: .9rem; font-weight: 700; text-decoration: none; transition: color 180ms ease; }
+.quote-page__nav-actions > a:not(.btn):hover { color: var(--text); }
+.quote-page .quote-builder { padding-top: clamp(72px, 9vw, 120px); }
+.quote-page .quote-builder__header h1 { font-size: clamp(2.4rem, 6vw, 5.4rem); line-height: .98; }
+@media (max-width: 640px) {
+  .quote-page__nav { min-height: 74px; }
+  .quote-page__nav .brand { width: 48px; height: 48px; }
+  .quote-page__nav-actions > a:not(.btn) { display: none; }
+  .quote-page__nav-actions .btn { min-height: 44px; padding-inline: 18px; font-size: .82rem; }
+  .quote-page .quote-builder { padding-top: 56px; }
+}

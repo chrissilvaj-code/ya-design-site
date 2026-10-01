@@ -8,7 +8,7 @@ const premiumCards = document.querySelectorAll(
     ".enterprise-plan",
     ".scale-process__note",
     ".scale-assurance__grid li",
-    ".scale-portfolio__grid figure"
+    ".scale-portfolio__track figure"
   ].join(", ")
 );
 
@@ -90,3 +90,52 @@ document.addEventListener("visibilitychange", () => {
     if (isNearViewport) playVideo(video);
   });
 });
+
+const portfolioCarousel = document.querySelector("[data-portfolio-carousel]");
+
+if (portfolioCarousel) {
+  const viewport = portfolioCarousel.querySelector("[data-carousel-viewport]");
+  const previousButton = portfolioCarousel.querySelector("[data-carousel-previous]");
+  const nextButton = portfolioCarousel.querySelector("[data-carousel-next]");
+  const projectCards = [...viewport.querySelectorAll("figure")];
+  const positionClasses = ["is-previous-preview", "is-center-primary", "is-center-secondary", "is-center-tertiary", "is-next-preview"];
+  let firstProjectIndex = 0;
+
+  const circularIndex = (index) => (index + projectCards.length) % projectCards.length;
+
+  const renderProjects = () => {
+    const visibleIndexes = [
+      circularIndex(firstProjectIndex - 1),
+      circularIndex(firstProjectIndex),
+      circularIndex(firstProjectIndex + 1),
+      circularIndex(firstProjectIndex + 2),
+      circularIndex(firstProjectIndex + 3),
+    ];
+
+    projectCards.forEach((card) => {
+      card.hidden = true;
+      card.classList.remove(...positionClasses);
+    });
+
+    visibleIndexes.forEach((cardIndex, position) => {
+      const card = projectCards[cardIndex];
+      card.hidden = false;
+      card.classList.add(positionClasses[position]);
+      card.style.order = String(position + 1);
+    });
+  };
+
+  const moveProjects = (direction) => {
+    firstProjectIndex = circularIndex(firstProjectIndex + direction);
+    renderProjects();
+  };
+
+  previousButton.addEventListener("click", () => moveProjects(-1));
+  nextButton.addEventListener("click", () => moveProjects(1));
+  renderProjects();
+
+  viewport.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") moveProjects(-1);
+    if (event.key === "ArrowRight") moveProjects(1);
+  });
+}

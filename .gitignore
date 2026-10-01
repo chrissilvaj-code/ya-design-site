@@ -9,3 +9,6 @@ studio/.sanity/
 
 .vercel
 .env*
+
+# Arquivo-fonte 4K; o site usa a versão otimizada.
+Ya-Design/BREZ_Pirate_Ad_V1_Captions.webm

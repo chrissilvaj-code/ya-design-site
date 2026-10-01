@@ -11,7 +11,8 @@
 .quote-page .quote-builder__header h1 { max-width: 980px; margin-inline: auto; font-size: clamp(2.65rem, 5.7vw, 5.6rem); line-height: 1.05; letter-spacing: -.055em; text-wrap: balance; }
 .quote-page .quote-builder__title-line { display: block; white-space: nowrap; }
 .quote-page .quote-builder__title-accent { color: var(--primary); }
-.quote-page .quote-builder__header p { max-width: 880px; margin: 24px auto 0; font-size: clamp(1rem, 1.35vw, 1.18rem); line-height: 1.65; text-align: left; }
+.quote-page .quote-builder__header p { max-width: 880px; margin: 24px auto 0; font-size: clamp(1rem, 1.35vw, 1.18rem); line-height: 1.65; text-align: center; }
+.quote-page .quote-builder__header p span { display: block; }
 @media (max-width: 640px) {
   .quote-page__nav { min-height: 74px; }
   .quote-page__nav .brand { width: 48px; height: 48px; }

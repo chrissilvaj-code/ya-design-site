@@ -6,11 +6,22 @@
 .quote-page__nav-actions > a:not(.btn) { color: var(--muted); font-size: .9rem; font-weight: 700; text-decoration: none; transition: color 180ms ease; }
 .quote-page__nav-actions > a:not(.btn):hover { color: var(--text); }
 .quote-page .quote-builder { padding-top: clamp(72px, 9vw, 120px); }
-.quote-page .quote-builder__header h1 { font-size: clamp(2.4rem, 6vw, 5.4rem); line-height: .98; }
+.quote-page .quote-builder__header { max-width: 1040px; margin-bottom: clamp(48px, 6vw, 76px); }
+.quote-page .quote-builder__header .eyebrow { margin-bottom: 22px; }
+.quote-page .quote-builder__header h1 { max-width: 980px; margin-inline: auto; font-size: clamp(2.65rem, 5.7vw, 5.6rem); line-height: 1.05; letter-spacing: -.055em; text-wrap: balance; }
+.quote-page .quote-builder__title-line { display: block; white-space: nowrap; }
+.quote-page .quote-builder__title-accent { color: var(--primary); }
+.quote-page .quote-builder__header p { max-width: 880px; margin: 24px auto 0; font-size: clamp(1rem, 1.35vw, 1.18rem); line-height: 1.65; text-align: center; }
+.quote-page .quote-builder__header p span { display: block; }
 @media (max-width: 640px) {
   .quote-page__nav { min-height: 74px; }
   .quote-page__nav .brand { width: 48px; height: 48px; }
   .quote-page__nav-actions > a:not(.btn) { display: none; }
   .quote-page__nav-actions .btn { min-height: 44px; padding-inline: 18px; font-size: .82rem; }
   .quote-page .quote-builder { padding-top: 56px; }
+  .quote-page .quote-builder__header { margin-bottom: 38px; }
+  .quote-page .quote-builder__header .eyebrow { margin-bottom: 18px; }
+  .quote-page .quote-builder__header h1 { font-size: clamp(2.45rem, 12vw, 3.7rem); line-height: 1.03; letter-spacing: -.05em; }
+  .quote-page .quote-builder__title-line { white-space: normal; }
+  .quote-page .quote-builder__header p { margin-top: 20px; font-size: .98rem; line-height: 1.58; }
 }

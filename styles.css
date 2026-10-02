@@ -463,6 +463,10 @@ details:hover,
   background: #090a09;
 }
 
+.portfolio-card--mobile-only {
+  display: none;
+}
+
 .portfolio-card--featured {
   grid-column: span 2;
   aspect-ratio: 16 / 10;
@@ -2060,6 +2064,10 @@ details p {
   .portfolio-card--featured {
     grid-column: 1 / -1;
     aspect-ratio: 16 / 10;
+  }
+
+  .portfolio-card--mobile-only {
+    display: block;
   }
 
   .portfolio-card--mobile-wide {
